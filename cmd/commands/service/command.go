@@ -70,6 +70,7 @@ func NewCommand(licenseCommandName string) *cli.Command {
 		ArgsUsage: " ",
 		Flags: []cli.Flag{
 			identityFlag, identityPassphraseFlag,
+			// TODO Register Openvpn flags as transport "openvpn" arguments
 			openvpnProtocolFlag, openvpnPortFlag,
 			agreedTermsConditionsFlag,
 		},

@@ -90,6 +90,7 @@ type Dependencies struct {
 func (di *Dependencies) Bootstrap(nodeOptions node.Options) error {
 	logconfig.Bootstrap()
 	nats_discovery.Bootstrap()
+	// TODO Bootstrap openvpn together with transport
 	openvpn.Bootstrap()
 
 	log.Infof("Starting Mysterium Node (%s)", metadata.VersionAsString())
@@ -113,6 +114,7 @@ func (di *Dependencies) Bootstrap(nodeOptions node.Options) error {
 	di.bootstrapIdentityComponents(nodeOptions.Directories)
 	di.bootstrapLocationComponents(nodeOptions.Location, nodeOptions.Directories.Config)
 	di.bootstrapNodeComponents(nodeOptions)
+	// TODO Bootstrap services in desktop entrypoint only
 	di.bootstrapServiceOpenvpn(nodeOptions)
 	di.bootstrapServiceNoop(nodeOptions)
 
